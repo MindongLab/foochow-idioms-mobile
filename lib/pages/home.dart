@@ -24,24 +24,11 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   Widget _buildFeatureCard(Color bgColor, final String imgUrl) {
-    Widget image;
-
-    if (imgUrl == null) {
-      image = Placeholder();
-    } else if (imgUrl.endsWith('.svg')) {
-      image = SvgPicture.asset(
-        imgUrl,
-        semanticsLabel: 'Some caption',
-      );
-    } else {
-      image = Image.asset(imgUrl);
-    }
-
     return Card(
       margin: EdgeInsets.all(5.5),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(8.0),
-        child: FittedBox( child:image, fit: BoxFit.cover)
+        child: Image.asset(imgUrl)
       ),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.0)),
       color: bgColor,
@@ -68,8 +55,8 @@ class _MyHomePageState extends State<MyHomePage> {
               scrollDirection: Axis.horizontal,
               children: <Widget>[
                 _buildFeatureCard(Color(0xffC6A66F), 'assets/banner3.png'),
-                _buildFeatureCard(Color(0xff49CC76), 'assets/banner11.svg'),
-                // _buildFeatureCard(Colors.red, 'assets/banner2.svg'),
+                _buildFeatureCard(Color(0xff49CC76), 'assets/banner1.png'),
+                _buildFeatureCard(Colors.red, 'assets/banner2.png'),
               ],
             ),
           ),
